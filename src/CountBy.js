@@ -13,7 +13,7 @@ class CountBy extends Component {
 
   handleClick() {
     this.setState({
-      number: this.state.number + 1,
+      number: this.state.number + this.props.step,
     });
   }
 
@@ -21,7 +21,7 @@ class CountBy extends Component {
     const { step } = this.props;
     const { number } = this.state;
 
-    return <p onClick={this.handleClick}>{number * step}</p>;
+    return <p onClick={this.handleClick}>{number}</p>;
   }
 }
 
