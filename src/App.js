@@ -1,25 +1,40 @@
 import React from "react";
 import "./App.css";
 
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import Multiplier from "./Multiplier.js";
 import EvenClicks from "./EvenClicks.js";
 import CountBy from "./CountBy.js";
 import HideMe from "./HideMe.js";
 import MinimumLength from "./MinimumLength.js";
 
-function App() {
-  return (
-    <div className="App">
+const App = () => (
+  <Router>
+    <>
       <header>DevelopMe_ React Quiz</header>
-      <main>
-        <Multiplier x={5} y={7} />
+      <Route
+        path="/multiplier/:x/:y"
+        render={({ match }) => (
+          <Multiplier x={match.params.x} y={match.params.y} />
+        )}
+      />
+      <Route path="/even-clicks">
         <EvenClicks />
-        <CountBy step={5} />
+      </Route>
+      <Route
+        path="/count-by/:step"
+        render={({ match }) => <CountBy step={match.params.step} />}
+      ></Route>
+      <Route path="/hide-me">
         <HideMe>Flo is the best DevelopMe_ tutor ever!</HideMe>
-        <MinimumLength length={30} />
-      </main>
-    </div>
-  );
-}
+      </Route>
+      <Route
+        path="/minimum/:length"
+        render={({ match }) => <MinimumLength length={match.params.length} />}
+      ></Route>
+    </>
+  </Router>
+);
 
 export default App;
