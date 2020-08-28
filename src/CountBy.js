@@ -18,7 +18,6 @@ class CountBy extends Component {
   }
 
   render() {
-    const { step } = this.props;
     const { number } = this.state;
 
     return <p onClick={this.handleClick}>{number}</p>;
