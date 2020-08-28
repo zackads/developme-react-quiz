@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+import FormControl from "react-bootstrap/FormControl";
+import Alert from "react-bootstrap/Alert";
+
 class MinimumLength extends Component {
   constructor(props) {
     super(props);
@@ -23,8 +26,10 @@ class MinimumLength extends Component {
 
     return (
       <>
-        <input onChange={(e) => this.handleInput(e)} value={value} />
-        <p hidden={value.length >= length ? true : false}>Too short!</p>
+        <FormControl onChange={(e) => this.handleInput(e)} value={value} />
+        <Alert variant="danger" hidden={value.length >= length ? true : false}>
+          Too short!
+        </Alert>
       </>
     );
   }
