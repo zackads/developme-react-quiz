@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Multiplier = (props) => <p>{props.x * props.y}</p>;
 
